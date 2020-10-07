@@ -1,6 +1,7 @@
 # coderust
 Cracking coding interview with coderust
 
+[Original website](https://www.educative.io/courses/coderust-hacking-the-coding-interview)
 [Alternative free version for coderust](https://github.com/kevinfiol/coderust-free)
 
 1. Array
