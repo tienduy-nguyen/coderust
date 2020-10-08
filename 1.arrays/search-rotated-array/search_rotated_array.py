@@ -1,8 +1,8 @@
 # Searches an element key in a pivoted 
 # sorted array arrp[] of size n  
-def pivotBinarySearch(arr, key):
+def pivot_binary_search(arr, key):
   high = len(arr)-1
-  pivot = findPivot(arr, 0, high)
+  pivot = find_pivot(arr, 0, high)
   if pivot == -1:
     return binary_search(arr,0, high, key)
   if arr[pivot] == key:
@@ -15,7 +15,7 @@ def pivotBinarySearch(arr, key):
 # Function to get pivot. For array  
 # 3, 4, 5, 6, 1, 2 it returns 3  
 # (index of 6)
-def findPivot(arr, low, high):
+def find_pivot(arr, low, high):
   if high < low:
     return -1
   if low == high:
@@ -26,8 +26,8 @@ def findPivot(arr, low, high):
   if mid > low and arr[mid] < arr[mid-1]:
     return mid
   if arr[low] >= arr[mid]:
-    return findPivot(arr, low, mid-1)
-  return findPivot(arr, mid+1, high)
+    return find_pivot(arr, low, mid-1)
+  return find_pivot(arr, mid+1, high)
 
 
 def binary_search(arr, low,high, key):
@@ -48,6 +48,6 @@ arr2 = [5, 6, 7, 8, 9, 10, 1, 2, 3]
 key2 = 30 # not found
 arr3 = [30, 40, 50, 10, 20]
 key3 = 10
-print(pivotBinarySearch(arr1, key1))
-print(pivotBinarySearch(arr2, key2))
-print(pivotBinarySearch(arr3, key3))
+print(pivot_binary_search(arr1, key1))
+print(pivot_binary_search(arr2, key2))
+print(pivot_binary_search(arr3, key3))
