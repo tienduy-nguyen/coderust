@@ -1,6 +1,6 @@
 function findFirstLast(arr, key) {
   const indices = arr.map((e, i) => (e === key ? i : ''));
-  console.log(indices);
+  return [indices.first, indices.last];
 }
 
 const arr1 = [1, 3, 5, 5, 5, 5, 67, 123, 125];
