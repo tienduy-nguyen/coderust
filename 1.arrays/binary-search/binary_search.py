@@ -25,3 +25,15 @@ print(result)
 # Average case time complexity: O(log N)
 # Best case time complexity: O(1)
 # Space complexity: O(1)
+
+# Recursive  methods
+def binary_search2(arr, low, high, key):
+  midIndex = 0
+  mid = arr[midIndex]
+  if high < low:
+    return -1
+  if mid == key:
+    return midIndex
+  if mid > key:
+    return binary_search2(arr,low, midIndex-1, key)
+  return binary_search2(arr, midIndex + 1, high, key)
