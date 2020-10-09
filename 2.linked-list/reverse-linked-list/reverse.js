@@ -18,7 +18,7 @@ let reverse2 = function (head) {
 };
 
 let _reverse = function (node, prev = null) {
-  if (head === null) {
+  if (!head) {
     return null;
   }
   const next = node.next;

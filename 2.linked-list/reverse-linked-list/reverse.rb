@@ -2,7 +2,7 @@
 def reverse(head)
   prev = nil
   current = head
-  while(current) do
+  while current do
     next = current.next
     current.next = prev
     prev = current

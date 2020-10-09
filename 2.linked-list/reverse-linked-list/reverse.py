@@ -3,7 +3,7 @@
 def reverse(self, head):
   prev = None
   current = head
-  while(current):
+  while current:
     next = current.next
     current.next = prev
     prev = current
