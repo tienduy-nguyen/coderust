@@ -7,6 +7,8 @@ class LinkedList:
     self.head = head
 
 def insertion_sort(self, head):
+  if(head is None or head.next is None):
+    return head
   dummy_head = ListNode(0)
   dummy_head =  node_to_insert = head
 
