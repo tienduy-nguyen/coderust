@@ -10,5 +10,14 @@ def removeNthFromEnd(self, head, n):
   return slow
 
 
-# Alternative solutions
+# Alternative solutions: Recursive solution
 def remove_nth_from_end2(self, head, n):
+  def remove(head,n):
+    if head is None: return head, 0
+    node, count = remove(head.next, n)
+    count += 1
+    head.next = node
+    if count == n: head = head.next # Replace node at nth by the next node
+    return head, count
+  return remove(head, n)[0]
+

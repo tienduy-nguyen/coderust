@@ -21,6 +21,25 @@ class LinkedList:
           slow = slow.next
       slow.next = slow.next.next
       return head
+  def remove_nth_from_end2(self, head, n):
+    def remove(head,n):
+      if head is None: return head, 0
+      node, count = remove(head.next, n)
+      if node is not None: print('node: ', node.val, ' - count: ', count)
+      count += 1
+      head.next = node
+      if count == n: 
+        print('Somthing here: ', count, head.val, node.val)
+        head = head.next
+      return head, count
+    return remove(head, n)[0] #Get head
+
+  def count(self,head):
+    def count_size(head):
+      if head is None: return 0
+      count = count_size(head.next) + 1
+      return count
+    return count_size(head)
 
   def shift(self, val):
     new_node = ListNode(val)
@@ -50,7 +69,7 @@ if __name__ == '__main__':
   lk.shift(0)
 
   lk.printNode(lk.head)
-  ans = lk.removeNthFromEnd(lk.head, 2)
+  ans = lk.remove_nth_from_end2(lk.head, 2)
   lk.printNode(ans)
   # while ans is not None:
   #   print(ans.val)
