@@ -7,8 +7,7 @@ class LinkedList:
   def __init__(self):
     self.head = None
 
-  @staticmethod
-  def getIntersectionNode(headA, headB):
+  def getIntersectionNode(self,headA, headB):
     if headA is None or headB is None:
         return None
 
@@ -45,19 +44,20 @@ class LinkedList:
     # Concatenate A and B
     LinkedList.printNode(A)
     LinkedList.printNode(B)
-    last = ListNode(0)
-    last.next = A
+    last = A
     while last.next != None:
-      print(last.val)
       last = last.next
     last.next = B      
-    LinkedList.printNode(last)
+    LinkedList.printNode(A)
 
     # Find the start of the loop
     fast = slow = A
     while fast and fast.next:
         slow, fast = slow.next, fast.next.next
+        print('slow: ',slow.val)
+        print('fast: ',fast.val)
         if slow == fast:
+            print('We found something here')
             fast = A
             while fast != slow:
                 slow, fast = slow.next, fast.next
@@ -87,22 +87,32 @@ class LinkedList:
    
 
 if __name__ == '__main__':
-  a = LinkedList()
-  a.shift(5)
-  a.shift(4)
-  a.shift(8)
-  a.shift(1)
-  a.shift(4)
+  lk = LinkedList()
+  a = [4,1,8,4,5]
+  b = [7,6,1,8,4,5]
+  headA = ListNode(a[0])
+  headB = ListNode(b[0])
+  first = headA
+  second = headB
+  first.next= ListNode(a[1])
+  first.next.next= ListNode(a[2])
+  first.next.next.next= ListNode(a[3])
+  first.next.next.next.next= ListNode(a[4])
 
-  b = LinkedList()
-  b.shift(5)
-  b.shift(4)
-  b.shift(8)
-  b.shift(1)
-  b.shift(6)
-  b.shift(5)
 
-  # LinkedList.printNode(a.head)
-  # LinkedList.printNode(b.head)
-  res = a.getIntersectionNode2(a.head,b.head)
+  second.next= ListNode(b[1])
+  second.next.next= ListNode(b[2])
+  second.next.next.next= ListNode(b[3])
+  second.next.next.next.next= ListNode(b[4])
+  second.next.next.next.next.next= ListNode(b[5])
+  # for i in a[1::]:
+  #   print(i)
+  #   first.next = ListNode(i)
+  # for i in b[1::]:
+  #   second.next = ListNode(i)
+
+  LinkedList.printNode(headA)
+  LinkedList.printNode(headB)
+
+  res = lk.getIntersectionNode(headA,headB)
   LinkedList.printNode(res)
