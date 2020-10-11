@@ -1,7 +1,7 @@
 def remove_nth_from_end(head, n)
   slow = fast = head
   for _ in 0..n-1
-    return head if fast.nil?
+    return head.next if fast.nil?
     fast = fast.next
   end
   while fast && fast.next

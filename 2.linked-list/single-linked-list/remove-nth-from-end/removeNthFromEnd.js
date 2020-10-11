@@ -2,7 +2,7 @@ let removeNthFromEnd = function (head, n) {
   let slow = head;
   let fast = head;
   for (let i = 0; i < n; ++i) {
-    if (!fast) return head;
+    if (!fast) return head.next;
     fast = fast.next;
   }
   while (fast && fast.next) {
